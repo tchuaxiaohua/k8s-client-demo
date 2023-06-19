@@ -12,6 +12,7 @@ import (
 
 func main() {
 	pods := NewPod()
+	fmt.Println("Starting------")
 	for {
 		pods.GetPod("dev")
 		time.Sleep(time.Second * 2)
@@ -46,6 +47,7 @@ func (k *Pod) GetPod(namespace string) {
 	//podObj, err := k.ClientSet.CoreV1().Pods(namespace).Get(context.TODO(), podName, metav1.GetOptions{})
 	podObj, err := k.ClientSet.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
+		fmt.Println("Error getting pods: ", err)
 		return
 	}
 
