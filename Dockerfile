@@ -5,7 +5,7 @@ WORKDIR /apps
 COPY ./ /apps
 RUN export GOPROXY=https://goproxy.cn \
     && go build  -ldflags "-s -w" -o get-pod \
-    && chmod +x dingtalk
+    && chmod +x get-pod
 
 FROM alpine
 LABEL maintainer="tchua"
